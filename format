@@ -1,3 +1,5 @@
 
 print（“some text{:6.10f}”.format()）
 浮点型，整数部分默认六位，小数部分10位
+format(i*n),format 的（）中能加表达式
+
