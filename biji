@@ -16,3 +16,38 @@ else: # 列表为空
 内置函数 range() 生成一个等差数列（并不是列表）：
 list(range(4, 15, 2))
 [4, 6, 8, 10, 12, 14]
+
+a.insert(0, 1) # 在列表索引 0 位置添加元素 1
+
+如果你想要在列表中移除任意指定值，你需要使用 remove() 方法。
+a.remove(234)   ；234值
+你也能使用 del 关键字删除指定位置的列表元素。
+ del a[-1]  ；-1 位置
+ pop（）方法弹出元素，pop（0）弹出第一个元素，列表被弹出元素后，列表变小。
+ 
+ 列表推导式
+ squares = [x**2 for x in range(10)]
+ 
+ 大括号或 set() 函数可以用来创建集合。注意：想要创建空集合，你必须使用 set() 而不是 {}。后者用于创建空字典。
+ 
+ 从集合中添加或弹出元素：a.add('zifu'),a.pop();;;pop不能带参数，从0位弹出。
+ 
+ 字典是是无序的键值对（key:value）集合，同一个字典内的键必须是互不相同的。一对大括号 {} 创建一个空字典。
+ 
+ 如果你想要在遍历列表（或任何序列类型）的同时获得元素索引值，你可以使用 enumerate()。
+ >>> for i, j in enumerate(['a', 'b', 'c']):
+...     print(i, j)
+...
+0 a
+1 b
+2 c
+
+你也许需要同时遍历两个序列类型，你可以使用 zip() 函数。
+
+>>> a = ['Pradeepto', 'Kushal']
+>>> b = ['OpenSUSE', 'Fedora']
+>>> for x, y in zip(a, b):
+...     print("{} uses {}".format(x, y))
+...
+Pradeepto uses OpenSUSE
+Kushal uses Fedora
