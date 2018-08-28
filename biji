@@ -51,3 +51,11 @@ a.remove(234)   ；234值
 ...
 Pradeepto uses OpenSUSE
 Kushal uses Fedora
+
+
+
+字符串
+分割、连接、大小写转换、搜索
+
+字符串有几个进行剥离操作的方法。最简单的一个是 strip(chars)，用来剥离字符串首尾中指定的字符，它允许有一个字符串参数，这个参数为剥离哪些字符提供依据。
+
