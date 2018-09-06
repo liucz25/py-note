@@ -1,0 +1,92 @@
+Git与GitHub学习笔记（八）git如何同时同步提交到码云和GitHub上
+前言：
+今天github push代码一直push不上去，打算就备份一份代码带国内开源码云上。
+
+Github容易出现的情况是:
+
+国内访问速度比较慢，
+如果被墙掉的话，就直接没发使用了
+如果开源个PHP的项目，想把扩展文件目录vender一并上传上去，这样子下载的时候使用github会很慢
+从今天开始，我将会使我的开源项目同时推送到github和码云。
+
+实战
+前提：你的代码已经在Github仓库和码云仓库了
+
+1、项目案例：
+
+Github：https://github.com/Tinywan/html5-dash-hls-rtmp
+码云：https://gitee.com/Tinywan/html5-dash-hls-rtmp
+2、配置
+
+手动方式修改配置git文件
+
+（1）克隆Github项目代码大本地
+
+git clone https://github.com/Tinywan/html5-dash-hls-rtmp.git
+（2）进入项目目录修改git 的配置文件config
+
+
+
+（3）配置后的config文件内容
+
+复制代码
+$ cat config
+[core]
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        symlinks = false
+        ignorecase = true
+        hideDotFiles = dotGitOnly
+[remote "origin"]
+        url = https://github.com/Tinywan/Html5-m3u8-RTMP.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[remote "second"]
+        url = https://gitee.com/Tinywan/html5-dash-hls-rtmp.git
+        fetch = +refs/heads/*:refs/remotes/second/*
+复制代码
+以上红色配置内容为新添加的内容
+
+（4）查看所有分支
+
+
+
+可以看出多出来一个second远程master分支
+
+（5）开始推送代码
+
+这里修改一下README.md文件，添加内容：“码云提交代码”，然后查看状态，直接提交到码云主master分支
+
+
+
+注意：以上步骤必须的先添加到本地仓库同时添加说明，以上两在这里
+
+
+
+再次回到码云查看是否提交成功，出现以下表示提交成功
+
+ 
+
+下来再次修改（为了做出比较）README.md文件提交代码到github上去
+
+添加文件内容：“码云提交代码==Github 同步diamante”
+
+ 
+
+查看github是否提交成功，出现以下表示同步完成了
+
+
+
+ 
+
+第二种同步方式
+是码云提供的，强制同步
+
+
+
+总结
+git push origin master  会推送到 Github
+git push second master 会推送到码云
+注意：second origin都是名字，你自己可以随便取。
+贵在坚持,相信自己.
